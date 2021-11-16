@@ -1,0 +1,89 @@
+:root {
+	--startDay: 2;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+li:not(.month__dayOfWeek, .month__dayNow) {
+	text-align: center;
+	padding: 0.5em;
+	font-size: 2ch;
+	color: rgb(41, 41, 41);
+}
+
+section {
+	position: relative;
+}
+
+.calendar {
+	overflow-x: hidden;
+	scroll-snap-type: y mandatory;
+	behavior: "smooth";
+	height: 100vh;
+}
+
+button {
+	position: absolute;
+	bottom: 1.875em;
+	right: 1.875em;
+	border-radius: 30px;
+	padding: 1em;
+	background: rgb(14, 86, 114);
+	color: whitesmoke;
+	text-align: center;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0.8em;
+	transition: 0.2s ease all;
+}
+
+#calendar__up {
+	bottom: 6em;
+}
+
+button:hover {
+	background: rgb(25, 135, 179);
+}
+
+.month {
+	padding: 1em;
+	padding-top: 5em;
+	text-align: center;
+	scroll-snap-align: center;
+
+	height: 100%;
+}
+
+.month__list {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: 20px;
+	align-items: center;
+	gap: 0.625em;
+	list-style: none;
+	padding: 0.5em;
+	padding-top: 2em;
+
+	height: 95%;
+}
+
+/* MODIFIERS */
+.month__firstDay {
+	grid-column-start: var(--startDay);
+}
+
+.month__dayNow {
+	font-weight: 900;
+	color: rgb(92, 161, 226);
+}
+
+@media screen and (max-width: 400px) {
+	body {
+		font-size: 12px;
+	}
+}
